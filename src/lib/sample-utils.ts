@@ -1,4 +1,4 @@
-import { RawData } from "../types";
+import { RawData, RawDataCategory } from "../types";
 
 export function transformSampleMetadata(data?: RawData) {
   if (!data?.sample_summary_stats) return {};

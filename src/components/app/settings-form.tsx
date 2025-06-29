@@ -1,5 +1,6 @@
 import { createForm } from "@tanstack/solid-form";
 import { createContext, ParentComponent, useContext } from "solid-js";
+import { Settings } from "~/types";
 
 export type SettingsState = {
   sampleSelection: {
@@ -8,6 +9,17 @@ export type SettingsState = {
   globalVisualization: {
     groupingEnabled: boolean;
     groupBy: string;
+  }
+  filters: {
+    enabled: boolean;
+    appliedSettings: Settings;
+  }
+  hexbin: {
+    enabled: boolean;
+    xCol: string;
+    yCol: string;
+    numBinsX: number;
+    numBinsY: number;
   }
 }
 
@@ -18,6 +30,18 @@ export const defaultSettings: SettingsState = {
   globalVisualization: {
     groupingEnabled: true,
     groupBy: "sample_id",
+  },
+  filters: {
+    enabled: false,
+    appliedSettings: {}
+  },
+
+  hexbin: {
+    enabled: false,
+    xCol: "x_coord",
+    yCol: "y_coord",
+    numBinsX: 50,
+    numBinsY: 50,
   }
 }
 
